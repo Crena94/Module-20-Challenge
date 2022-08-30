@@ -1,4 +1,4 @@
-/*
+*
 Joint Savings Account
 ---------------------
 
@@ -26,19 +26,40 @@ contract JointSavings {
     - A variable of type `address public` named `lastToWithdraw`
     - Two variables of type `uint public` named `lastWithdrawAmount` and `contractBalance`.
     */
-    // YOUR CODE HERE!
+  address payable accountOne = 0x0c0669Cd5e60a6F4b8ce437E4a4A007093D368Cb;
+  address payable accountTwo = 0x7A1f3dFAa0a4a19844B606CD6e91d693083B12c0; 
+  
+  address public lastToWithdraw;
+  uint public lastWithdrawAmount;
+  
+  address public lastToWithdraw;
+  uint public contractBalance;
 
     /*
     Define a function named **withdraw** that will accept two arguments.
     - A `uint` variable named `amount`
     - A `payable address` named `recipient`
     */
+    uint 
+    payable address 
+
+
     function withdraw(uint amount, address payable recipient) public {
 
         /*
         Define a `require` statement that checks if the `recipient` is equal to either `accountOne` or `accountTwo`. The `requiere` statement returns the text `"You don't own this account!"` if it does not.
         */
-        // YOUR CODE HERE!
+    function withdraw(uint amount, address payable recipient) public {
+        require(recipient == public_savings || recipient == private_savings, "This is not your account");
+        require(address(this).balance >= amount, "You don't have enough funds!");
+        if (last_to_withdraw != recipient) {
+         last_to_withdraw = recipient;
+        }
+        last_withdraw_amount = amount;
+        balance = address(this).balance - amount;
+
+    return msg.sender.transfer(amount);
+  }
 
         /*
         Define a `require` statement that checks if the `balance` is sufficient to accomplish the withdraw operation. If there are insufficient funds, the text `Insufficient funds!` is returned.
@@ -66,7 +87,17 @@ contract JointSavings {
         /*
         Call the `contractBalance` variable and set it equal to the balance of the contract by using `address(this).balance`.
         */
-        // YOUR CODE HERE!
+        function deposit() public payable {
+    if (last_to_deposit != msg.sender) {
+      last_to_deposit = msg.sender;
+    }
+
+    last_deposit_amount = msg.value;
+    balance = address(this).balance;
+  }
+
+  function() external payable {
+  }
     }
 
     /*
